@@ -7,12 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-<<<<<<< HEAD
-=======
         <module name="AuthorizationServer" />
         <module name="userservice" />
         <module name="student-service" />
->>>>>>> 7ddc54a3b6612a3de7836bac1bfb0afc62e7bc42
         <module name="RewardService" />
         <module name="AuthorizationServer" />
         <module name="ConfigServer" />

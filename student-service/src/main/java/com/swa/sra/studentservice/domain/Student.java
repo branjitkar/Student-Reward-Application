@@ -29,9 +29,11 @@ public class Student {
 
     private ClassRoom classRoom;
 
-     private List<Avatar> avatarList;
+     private Avatar avatar;
 
     private  List<Reward> rewardList;
 
     private  School school;
+
+    private  List<Element> elementList;
 }
