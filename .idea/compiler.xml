@@ -26,6 +26,10 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AuthorizationServer" options="-parameters" />
+      <module name="ConfigServer" options="-parameters" />
+      <module name="EmailService" options="-parameters" />
+      <module name="RewardService" options="-parameters" />
       <module name="schoolservice" options="-parameters" />
       <module name="userservice" options="-parameters" />
     </option>
