@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 
 @Document
 @Data
@@ -26,4 +28,10 @@ public class Student {
     private Long score = 1000L;
 
     private ClassRoom classRoom;
+
+     private List<Avatar> avatarList;
+
+    private  List<Reward> rewardList;
+
+    private  School school;
 }
