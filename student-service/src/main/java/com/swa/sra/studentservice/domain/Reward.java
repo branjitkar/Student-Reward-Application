@@ -1,18 +1,16 @@
 package com.swa.sra.studentservice.domain;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Year;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClassRoom {
-
-    private String year;
-
-    private String group;
+public class Reward {
+    private String id;
+    private String name;
+    private int quantity;
+    private RewardType type;
+    private int price;
 }

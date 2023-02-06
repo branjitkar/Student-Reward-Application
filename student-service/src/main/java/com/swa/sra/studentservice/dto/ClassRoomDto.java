@@ -1,17 +1,15 @@
-package com.swa.sra.studentservice.domain;
+package com.swa.sra.studentservice.dto;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.Year;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClassRoom {
-
+public class ClassRoomDto {
+    
     private String year;
 
     private String group;
