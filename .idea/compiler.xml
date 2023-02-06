@@ -14,6 +14,7 @@
         <module name="userservice" />
         <module name="student-service" />
         <module name="RewardService" />
+        <module name="AuthorizationServer" />
         <module name="ConfigServer" />
         <module name="EmailService" />
         <module name="schoolservice" />
