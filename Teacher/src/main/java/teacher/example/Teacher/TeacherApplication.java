@@ -1,12 +1,15 @@
 package teacher.example.Teacher;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.annotation.EnableKafka;
 
 @SpringBootApplication
-public class TeacherApplication {
+@EnableKafka
+public class TeacherApplication implements CommandLineRunner {
 	@Bean
 	ModelMapper modelMapper(){
 		return new ModelMapper();
@@ -16,4 +19,8 @@ public class TeacherApplication {
 		SpringApplication.run(TeacherApplication.class, args);
 	}
 
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Message has been sent");
+	}
 }
