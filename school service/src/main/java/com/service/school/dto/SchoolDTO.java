@@ -1,7 +1,8 @@
 package com.service.school.dto;
 
-import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
+
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @ToString

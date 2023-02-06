@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ApiGateway/ApiGateway.iml" filepath="$PROJECT_DIR$/ApiGateway/ApiGateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/AuthorizationServer/AuthorizationServer.iml" filepath="$PROJECT_DIR$/AuthorizationServer/AuthorizationServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AvatarDemo/AvatarDemo.iml" filepath="$PROJECT_DIR$/AvatarDemo/AvatarDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/ElementDemo/ElementDemo.iml" filepath="$PROJECT_DIR$/ElementDemo/ElementDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/EmailService/EmailService.iml" filepath="$PROJECT_DIR$/EmailService/EmailService.iml" />
