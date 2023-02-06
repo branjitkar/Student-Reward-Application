@@ -9,6 +9,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
         <module name="AuthorizationServer" />
+        <module name="ElementDemo" />
+        <module name="userservice" />
         <module name="Teacher" />
         <module name="ApiGateway" />
         <module name="userservice" />
@@ -24,6 +26,7 @@
       <module name="ApiGateway" target="17" />
       <module name="AuthorizationServer" target="11" />
       <module name="ConfigServer" target="11" />
+      <module name="ElementDemo" target="11" />
       <module name="EmailService" target="11" />
       <module name="EurekaServer" target="11" />
       <module name="RewardService" target="11" />
@@ -35,6 +38,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ElementDemo" options="-parameters" />
       <module name="ApiGateway" options="-parameters" />
       <module name="AuthorizationServer" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
