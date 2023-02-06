@@ -3,8 +3,7 @@ package com.service.school.dto;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
-@Getter
-@Setter
+@Data
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
