@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/EmailService/EmailService.iml" filepath="$PROJECT_DIR$/EmailService/EmailService.iml" />
       <module fileurl="file://$PROJECT_DIR$/RewardService/RewardService.iml" filepath="$PROJECT_DIR$/RewardService/RewardService.iml" />
       <module fileurl="file://$PROJECT_DIR$/school service/schoolservice.iml" filepath="$PROJECT_DIR$/school service/schoolservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/student-service/student-service.iml" filepath="$PROJECT_DIR$/student-service/student-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/user service/userservice.iml" filepath="$PROJECT_DIR$/user service/userservice.iml" />
     </modules>
   </component>
