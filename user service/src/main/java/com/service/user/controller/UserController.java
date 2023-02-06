@@ -19,8 +19,8 @@ public class UserController {
 
     @PostMapping("/addUser")
     ResponseEntity<?> addUser(@RequestBody UserDTO userDTO) {
-       userService.addUser(userDTO);
-        return new ResponseEntity<>(new ResponseMessage("User Created Successfully"), HttpStatus.OK);
+        userService.addUser(userDTO);
+        return new ResponseEntity<>(new ResponseMessage("User Created Successfully"), HttpStatus.CREATED);
     }
 
     @GetMapping("/getAllUser")
@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteUser/{id}")
-    ResponseEntity<?> deleteUser(@PathVariable(value = "id") String id){
+    ResponseEntity<?> deleteUser(@PathVariable(value = "id") String id) {
         userService.removeUser(id);
         return new ResponseEntity<>(new ResponseMessage("User Delete Successfully"), HttpStatus.OK);
     }

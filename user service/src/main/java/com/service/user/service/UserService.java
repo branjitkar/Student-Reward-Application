@@ -1,7 +1,6 @@
 package com.service.user.service;
 
 import com.service.user.dto.UserDTO;
-import com.service.user.entity.User;
 
 import java.util.List;
 
