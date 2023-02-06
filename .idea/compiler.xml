@@ -7,7 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="EurekaServer" />
         <module name="AuthorizationServer" />
+        <module name="Teacher" />
+        <module name="ApiGateway" />
         <module name="userservice" />
         <module name="student-service" />
         <module name="RewardService" />
@@ -17,10 +20,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ApiGateway" target="17" />
       <module name="AuthorizationServer" target="11" />
       <module name="ConfigServer" target="11" />
       <module name="EmailService" target="11" />
+      <module name="EurekaServer" target="11" />
       <module name="RewardService" target="11" />
+      <module name="Teacher" target="11" />
       <module name="schoolservice" target="17" />
       <module name="student-service" target="17" />
       <module name="userservice" target="17" />
@@ -28,10 +34,13 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApiGateway" options="-parameters" />
       <module name="AuthorizationServer" options="-parameters" />
       <module name="ConfigServer" options="-parameters" />
       <module name="EmailService" options="-parameters" />
+      <module name="EurekaServer" options="-parameters" />
       <module name="RewardService" options="-parameters" />
+      <module name="Teacher" options="-parameters" />
       <module name="schoolservice" options="-parameters" />
       <module name="student-service" options="-parameters" />
       <module name="userservice" options="-parameters" />

@@ -7,6 +7,9 @@
         <option value="$PROJECT_DIR$/AuthorizationServer/pom.xml" />
         <option value="$PROJECT_DIR$/RewardService/pom.xml" />
         <option value="$PROJECT_DIR$/EmailService/pom.xml" />
+        <option value="$PROJECT_DIR$/Teacher/pom.xml" />
+        <option value="$PROJECT_DIR$/EurekaServer/pom.xml" />
+        <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
         <option value="$PROJECT_DIR$/user service/pom.xml" />
         <option value="$PROJECT_DIR$/school service/pom.xml" />
         <option value="$PROJECT_DIR$/student-service/pom.xml" />
