@@ -2,6 +2,7 @@ package com.swa.sra.studentservice.service;
 
 import com.swa.sra.studentservice.domain.Student;
 import com.swa.sra.studentservice.dto.StudentDto;
+import com.swa.sra.studentservice.event.SaveStudentEvent;
 import com.swa.sra.studentservice.repository.IStudentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -21,10 +22,14 @@ public class StudentService implements  IStudentService{
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private SaveStudentEvent saveStudentEvent;
+
     @Override
     public void saveStudent(Student student) {
         log.info("Inside  saveStudent of StudentService");
         iStudentRepository.save(student);
+        saveStudentEvent.send(student.toString());
     }
 
     @Override
