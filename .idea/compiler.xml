@@ -8,10 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AuthorizationServer" />
+        <module name="userservice" />
+        <module name="student-service" />
         <module name="RewardService" />
         <module name="ConfigServer" />
         <module name="EmailService" />
-        <module name="userservice" />
         <module name="schoolservice" />
       </profile>
     </annotationProcessing>
@@ -21,12 +22,18 @@
       <module name="EmailService" target="11" />
       <module name="RewardService" target="11" />
       <module name="schoolservice" target="17" />
+      <module name="student-service" target="17" />
       <module name="userservice" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="AuthorizationServer" options="-parameters" />
+      <module name="ConfigServer" options="-parameters" />
+      <module name="EmailService" options="-parameters" />
+      <module name="RewardService" options="-parameters" />
       <module name="schoolservice" options="-parameters" />
+      <module name="student-service" options="-parameters" />
       <module name="userservice" options="-parameters" />
     </option>
   </component>
