@@ -7,11 +7,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AuthorizationServer" />
+        <module name="RewardService" />
+        <module name="ConfigServer" />
+        <module name="EmailService" />
         <module name="userservice" />
         <module name="schoolservice" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AuthorizationServer" target="11" />
+      <module name="ConfigServer" target="11" />
+      <module name="EmailService" target="11" />
+      <module name="RewardService" target="11" />
       <module name="schoolservice" target="17" />
       <module name="userservice" target="17" />
     </bytecodeTargetLevel>
