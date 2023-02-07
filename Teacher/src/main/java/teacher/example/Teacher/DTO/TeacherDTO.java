@@ -10,14 +10,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class TeacherDTO {
     @Id
     private String teacherNumber;
+
+    private String username;
     private String firstName;
     private String lastname;
     private School school;
     private Contact contact;
     private TeachingClass teachingclass;
 
-    public TeacherDTO(String teacherNumber, String firstName, String lastname,String name, String address,String email, String phone, int year, String group) {
+
+
+    public TeacherDTO(String teacherNumber, String username, String firstName, String lastname, String name, String address, String email, String phone, int year, String group) {
         this.teacherNumber = teacherNumber;
+        this.username = username;
         this.firstName = firstName;
         this.lastname = lastname;
         this.school = new School(name, address);
@@ -34,6 +39,13 @@ public class TeacherDTO {
 
     public void setTeacherNumber(String teacherNumber) {
         this.teacherNumber = teacherNumber;
+    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {
@@ -75,5 +87,6 @@ public class TeacherDTO {
     public void setTeachingclass(TeachingClass teachingclass) {
         this.teachingclass = teachingclass;
     }
+
 
 }
