@@ -13,8 +13,8 @@
       <module fileurl="file://$PROJECT_DIR$/Teacher/Teacher.iml" filepath="$PROJECT_DIR$/Teacher/Teacher.iml" />
       <module fileurl="file://$PROJECT_DIR$/school service/schoolservice.iml" filepath="$PROJECT_DIR$/school service/schoolservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/student-command-service/student-command-service.iml" filepath="$PROJECT_DIR$/student-command-service/student-command-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/student-reward/student-reward.iml" filepath="$PROJECT_DIR$/student-reward/student-reward.iml" />
       <module fileurl="file://$PROJECT_DIR$/student-service/student-service.iml" filepath="$PROJECT_DIR$/student-service/student-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/student-command-service/student-service (1).iml" filepath="$PROJECT_DIR$/student-command-service/student-service (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/user service/userservice.iml" filepath="$PROJECT_DIR$/user service/userservice.iml" />
     </modules>
   </component>
