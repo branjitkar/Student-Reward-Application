@@ -11,24 +11,24 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
-public class StudentController {
+@RequestMapping("/school")
+public class SchoolController {
 
     @Autowired
     private SchoolService service;
-    @PostMapping("/addSchool")
+    @PostMapping
     ResponseEntity<?> addUser(@RequestBody SchoolDTO userDTO) {
         service.addSchool(userDTO);
         return new ResponseEntity<>(new ResponseMessage("School Created Successfully"), HttpStatus.OK);
     }
 
-    @GetMapping("/getAllSchool")
+    @GetMapping
     ResponseEntity<?> getAllSchoolList() {
         List<SchoolDTO> userDTOList = service.getAllSchool();
         return new ResponseEntity<>(userDTOList, HttpStatus.OK);
     }
 
-    @PutMapping("/updateSchool/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<?> updateSchool(@PathVariable(value = "id") String id, @RequestBody SchoolDTO dto) {
         dto.setId(id);
         SchoolDTO updateSchoolDTO = service.updateSchool(dto);
@@ -40,7 +40,7 @@ public class StudentController {
         }
     }
 
-    @DeleteMapping("/deleteSchool/{id}")
+    @DeleteMapping("/{id}")
     ResponseEntity<?> deleteSchool(@PathVariable(value = "id") String id){
         service.removeSchool(id);
         return new ResponseEntity<>(new ResponseMessage("School Delete Successfully"), HttpStatus.OK);

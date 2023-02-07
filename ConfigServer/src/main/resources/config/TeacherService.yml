@@ -1,9 +1,5 @@
-spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: school-db
+server:
+  port: 8103
 security:
   oauth2:
     client:
