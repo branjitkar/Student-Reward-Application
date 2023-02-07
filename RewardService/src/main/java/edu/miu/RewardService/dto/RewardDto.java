@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RewardDto {
-    private String id;
     private String name;
     private int quantity;
     private RewardType type;
