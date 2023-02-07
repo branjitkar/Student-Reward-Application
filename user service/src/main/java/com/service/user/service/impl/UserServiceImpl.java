@@ -3,9 +3,11 @@ package com.service.user.service.impl;
 import com.service.user.dto.UserDTO;
 import com.service.user.dto.UserWrapper;
 import com.service.user.entity.User;
+import com.service.user.exceptions.UserAlreadyExistsException;
 import com.service.user.repository.UserRepository;
 import com.service.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +22,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO addUser(UserDTO userDTO) {
+        Optional<User> optionalUser = userRepository.findById(userDTO.getUserName());
+        if (optionalUser.isPresent()){
+            throw new UserAlreadyExistsException("User already exists");
+        }
         User user =  UserWrapper.mapToUser(userDTO);
+        String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+        user.setPassword(encodedPassword);
         return UserWrapper.mapToUserDto(userRepository.save(user));
     }
 
@@ -36,14 +44,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDTO getUserByUsername(String userName) {
+        User user = userRepository.findByUserName(userName);
+        return UserWrapper.mapToUserDto(user);
+    }
+
+    @Override
     public UserDTO updateUser(UserDTO userDTO) {
-       Optional<User> optionalUser = userRepository.findById(userDTO.getId());
+       Optional<User> optionalUser = userRepository.findById(userDTO.getUserName());
 
        if (optionalUser.isPresent()){
            User user = UserWrapper.mapToUser(userDTO);
+           String encodedPassword = new BCryptPasswordEncoder().encode(user.getPassword());
+           user.setPassword(encodedPassword);
            return UserWrapper.mapToUserDto(userRepository.save(user));
        }
 
-       return null;
+       return userDTO;
     }
 }
