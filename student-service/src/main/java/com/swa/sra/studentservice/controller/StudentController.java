@@ -18,25 +18,25 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<?> saveStudent(@RequestBody Student student){
-        log.info("Inside  saveStudent of StudentController");
+        log.info("Inside  saveStudent method of StudentController");
         try{
             iStudentService.saveStudent(student);
         }catch (Exception e){
             System.out.println(e);
-            return new ResponseEntity<>("Error Saving", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<>("Saved Successfully", HttpStatus.OK);
     }
 
     @PutMapping("{studentNumber}")
     public ResponseEntity<?> updateStudent(@RequestBody Student student){
-        log.info("Inside  updateStudent of StudentController");
+        log.info("Inside  updateStudent method of StudentController");
         return new ResponseEntity<>("Update Successfully", HttpStatus.OK);
     }
 
     @GetMapping("{studentNumber}")
     public ResponseEntity<?> getStudent(@PathVariable("studentNumber") String studentNumber) throws Exception {
-        log.info("Inside  getStudent of StudentController");
+        log.info("Inside  getStudent  method of StudentController");
         return new ResponseEntity<>(iStudentService.getStudent(studentNumber), HttpStatus.OK);
     }
 

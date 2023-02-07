@@ -16,8 +16,8 @@
         <module name="RewardService" />
         <module name="ConfigServer" />
         <module name="EmailService" />
-        <module name="ApiGateway" />
         <module name="AvatarDemo" />
+        <module name="ApiGateway" />
         <module name="schoolservice" />
       </profile>
     </annotationProcessing>

@@ -11,4 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 public class Element {
     private String type;
+
+    private double price;
 }
