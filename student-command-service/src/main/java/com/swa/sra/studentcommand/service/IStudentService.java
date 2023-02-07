@@ -7,15 +7,5 @@ import com.swa.sra.studentcommand.dto.StudentDto;
 import java.util.List;
 
 public interface IStudentService {
-
     String saveStudent(AddStudentDTO student);
-
-    void updateStudent(StudentDto student);
-
-    AddStudentDTO getStudent(String studentNumber) throws Exception;
-
-    List<AddStudentDTO> getAllStudent();
-
-
-
 }
