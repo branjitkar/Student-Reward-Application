@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 public class Reward {
     @Id
-    private String id;
     private String name;
     private int quantity;
     private RewardType type;
