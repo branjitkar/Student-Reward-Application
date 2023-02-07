@@ -11,27 +11,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/addUser")
+    @PostMapping
     ResponseEntity<?> addUser(@RequestBody UserDTO userDTO) {
        userService.addUser(userDTO);
         return new ResponseEntity<>(new ResponseMessage("User Created Successfully"), HttpStatus.OK);
     }
 
-    @GetMapping("/getAllUser")
+    @GetMapping
     ResponseEntity<?> getAllUser() {
         List<UserDTO> userDTOList = userService.getAllUser();
         return new ResponseEntity<>(userDTOList, HttpStatus.OK);
     }
+    @GetMapping("/{userName}")
+    ResponseEntity<?> getUser(@PathVariable String userName) {
+        UserDTO userDTO = userService.getUserByUsername(userName);
+        return new ResponseEntity<>(userDTO, HttpStatus.OK);
+    }
 
-    @PutMapping("/updateUser/{id}")
-    ResponseEntity<?> updateUser(@PathVariable(value = "id") String id, @RequestBody UserDTO dto) {
-        dto.setId(id);
+    @PutMapping("/{userName}")
+    ResponseEntity<?> updateUser(@PathVariable String userName, @RequestBody UserDTO dto) {
+        dto.setUserName(userName);
         UserDTO updateUser = userService.updateUser(dto);
 
         if (updateUser == null) {
@@ -41,9 +46,9 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/deleteUser/{id}")
-    ResponseEntity<?> deleteUser(@PathVariable(value = "id") String id){
-        userService.removeUser(id);
+    @DeleteMapping("/{userName}")
+    ResponseEntity<?> deleteUser(@PathVariable String userName){
+        userService.removeUser(userName);
         return new ResponseEntity<>(new ResponseMessage("User Delete Successfully"), HttpStatus.OK);
     }
 }

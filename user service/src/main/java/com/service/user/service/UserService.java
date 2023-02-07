@@ -9,9 +9,11 @@ public interface UserService {
 
     UserDTO addUser(UserDTO userDTO);
 
-    void removeUser(String id);
+    void removeUser(String username);
 
     List<UserDTO> getAllUser();
+
+    UserDTO getUserByUsername(String userName);
 
     UserDTO updateUser(UserDTO userDTO);
 }
