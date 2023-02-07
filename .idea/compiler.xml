@@ -22,7 +22,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ApiGateway" target="17" />
+      <module name="ApiGateway" target="11" />
       <module name="AuthorizationServer" target="11" />
       <module name="AvatarDemo" target="11" />
       <module name="ConfigServer" target="11" />

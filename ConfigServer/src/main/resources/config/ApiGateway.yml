@@ -1,0 +1,32 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: UserService
+          uri: lb://USERSERVICE
+          predicates:
+            - Path=/users/**
+        - id: AvatarService
+          uri: lb://AVATARSERVICE
+          predicates:
+            - Path=/avatar/**
+        - id: ElementService
+          uri: lb://ELEMENTSERVICE
+          predicates:
+            - Path=/element/**
+        - id: RewardService
+          uri: lb://REWARDSERVICE
+          predicates:
+            - Path=/rewards/**
+        - id: SchoolService
+          uri: lb://SCHOOLSERVICE
+          predicates:
+            - Path=/school/**
+        - id: StudentService
+          uri: lb://STUDENTSERVICE
+          predicates:
+            - Path=/students/**
+        - id: TeacherService
+          uri: lb://TEACHERSERVICE
+          predicates:
+            - Path=/teachers/**
