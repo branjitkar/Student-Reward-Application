@@ -34,7 +34,7 @@ public class Student {
 
      private Avatar avatar;
 
-    private  List<Reward> rewardList;
+    private  List<Reward> rewardList = new ArrayList<>();
 
     private  School school;
 

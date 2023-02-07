@@ -1,7 +1,8 @@
-package com.swa.sra.studentservice.service;
+package com.sa.studentreward.service;
 
-import com.swa.sra.studentservice.dto.StudentElementDto;
-import com.swa.sra.studentservice.dto.StudentRewardDto;
+import com.sa.studentreward.dto.StudentElementDto;
+import com.sa.studentreward.dto.StudentRewardDto;
+
 
 public interface IElementEventService {
 
@@ -11,5 +12,5 @@ public interface IElementEventService {
 
     void changeElement(StudentElementDto studentElementDto) throws Exception;
 
-    void buyRewards(StudentRewardDto studentRewardDto);
+
 }

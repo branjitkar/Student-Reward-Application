@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Avatar {
 
-    private int head;
+    private String  id;
+
+    private String head, hair, eye, eyebrow, nose, mouth, ears, body, hat, top, topColour, hatColour;
 
 
 }

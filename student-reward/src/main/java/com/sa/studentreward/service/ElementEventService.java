@@ -1,10 +1,11 @@
-package com.swa.sra.studentservice.service;
+package com.sa.studentreward.service;
 
-import com.swa.sra.studentservice.domain.Element;
-import com.swa.sra.studentservice.domain.Student;
-import com.swa.sra.studentservice.dto.StudentElementDto;
-import com.swa.sra.studentservice.dto.StudentRewardDto;
-import com.swa.sra.studentservice.repository.IStudentRepository;
+import com.netflix.discovery.converters.Auto;
+import com.sa.studentreward.dto.*;
+import com.sa.studentreward.event.IStudentRewardService;
+import com.sa.studentreward.feign.ElementClient;
+import com.sa.studentreward.feign.RewardClient;
+import com.sa.studentreward.feign.StudentClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ElementEventService implements  IElementEventService {
 
-    @Autowired
-    private IStudentRepository iStudentRepository;
+
 
     @Autowired
     private IStudentElementService iStudentElementService;
@@ -24,12 +24,20 @@ public class ElementEventService implements  IElementEventService {
     private ElementClient elementClient;
 
     @Autowired
-    private  IStudentService iStudentService;
+    private StudentClient studentClient;
+
+
+    @Autowired
+    private IStudentRewardService iStudentRewardService;
+
+    @Autowired
+    private RewardClient rewardClient;
+
     @Override
     public void buyElements(StudentElementDto studentElementDto) throws Exception {
         log.info("Inside buyElements method of ElementEventService ");
-        Student oStudent = iStudentService.getStudentByStudentNumber(studentElementDto.getStudentNumber());
-        Element element =elementClient.getElementById(studentElementDto.getElementId());
+        StudentDto oStudent = studentClient.getStudent(studentElementDto.getStudentNumber());
+        ElementDto element =elementClient.getElementById(studentElementDto.getElementId());
         if(iStudentElementService.checkSufficientScore(element.getPrice() ,oStudent.getScore())){
             if(oStudent.getElementList() != null && iStudentElementService.checkElementTypeExist(element.getType(),oStudent.getElementList())){
                    iStudentElementService.changeElement(
@@ -40,7 +48,9 @@ public class ElementEventService implements  IElementEventService {
             }else{
                 iStudentElementService.addElementAndReducePrice(element,oStudent);
             }
-            iStudentRepository.save(oStudent);
+
+           studentClient.saveStudent(oStudent);
+
         }else {
             throw  new Exception("Score Not Sufficient");
         }
@@ -50,11 +60,11 @@ public class ElementEventService implements  IElementEventService {
     @Override
     public void removeElements(StudentElementDto studentElementDto) throws Exception {
         log.info("Inside removeElements method of ElementEventService ");
-        Student oStudent = iStudentService.getStudentByStudentNumber(studentElementDto.getStudentNumber());
-        Element element =elementClient.getElementById(studentElementDto.getElementId());
+        StudentDto oStudent =  studentClient.getStudent(studentElementDto.getStudentNumber());
+        ElementDto element =elementClient.getElementById(studentElementDto.getElementId());
         if(oStudent.getElementList() != null && iStudentElementService.checkElementExist(element,oStudent.getElementList())) {
             oStudent = iStudentElementService.removeElementAndAddPrice(element.getType(),oStudent);
-            iStudentRepository.save(oStudent);
+            studentClient.saveStudent(oStudent);
         }else
             throw new Exception("Error Removing");
 
@@ -63,18 +73,20 @@ public class ElementEventService implements  IElementEventService {
     @Override
     public void changeElement(StudentElementDto studentElementDto) throws Exception {
         log.info("Inside changeElement method of ElementEventService ");
-        Student oStudent = iStudentService.getStudentByStudentNumber(studentElementDto.getStudentNumber());
-        Element element = elementClient.getElementById(studentElementDto.getElementId());
-        oStudent = iStudentElementService.changeElement(
-                iStudentElementService.getMatchingElementType(element.getType(),oStudent.getElementList()),
-                oStudent,
-                element
-        );
-        iStudentRepository.save(oStudent);
+        StudentDto oStudent =  studentClient.getStudent(studentElementDto.getStudentNumber());
+        ElementDto element = elementClient.getElementById(studentElementDto.getElementId());
+        if(oStudent.getElementList() != null && iStudentElementService.checkElementTypeExist(element.getType(),oStudent.getElementList())) {
+            oStudent = iStudentElementService.changeElement(
+                    iStudentElementService.getMatchingElementType(element.getType(),oStudent.getElementList()),
+                    oStudent,
+                    element
+            );
+            studentClient.saveStudent(oStudent);
+        }else
+            throw new Exception("Error Changing");
+
+
     }
 
-    @Override
-    public void buyRewards(StudentRewardDto studentRewardDto) {
-        log.info("Inside buyRewards method of ElementEventService ");
-    }
+
 }

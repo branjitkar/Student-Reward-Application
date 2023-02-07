@@ -10,7 +10,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Element {
+
     private String type;
 
     private double price;
+
+    private String value;
 }

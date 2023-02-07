@@ -8,16 +8,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
-        <module name="AuthorizationServer" />
-        <module name="ElementDemo" />
         <module name="userservice" />
         <module name="Teacher" />
+        <module name="ApiGateway" />
+        <module name="AuthorizationServer" />
+        <module name="ElementDemo" />
         <module name="student-service" />
+        <module name="student-reward" />
         <module name="RewardService" />
         <module name="ConfigServer" />
         <module name="EmailService" />
         <module name="AvatarDemo" />
-        <module name="ApiGateway" />
         <module name="schoolservice" />
       </profile>
     </annotationProcessing>
@@ -31,6 +32,7 @@
       <module name="EurekaServer" target="11" />
       <module name="RewardService" target="11" />
       <module name="schoolservice" target="11" />
+      <module name="student-reward" target="17" />
       <module name="student-service" target="11" />
       <module name="Teacher" target="11" />
       <module name="userservice" target="11" />
@@ -48,6 +50,7 @@
       <module name="RewardService" options="-parameters" />
       <module name="Teacher" options="-parameters" />
       <module name="schoolservice" options="-parameters" />
+      <module name="student-reward" options="-parameters" />
       <module name="student-service" options="-parameters" />
       <module name="userservice" options="-parameters" />
     </option>

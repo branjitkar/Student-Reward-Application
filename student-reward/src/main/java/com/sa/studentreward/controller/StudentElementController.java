@@ -1,8 +1,8 @@
-package com.swa.sra.studentservice.controller;
+package com.sa.studentreward.controller;
 
-import com.swa.sra.studentservice.domain.Student;
-import com.swa.sra.studentservice.dto.StudentElementDto;
-import com.swa.sra.studentservice.service.ElementEventService;
+import com.sa.studentreward.dto.StudentElementDto;
+import com.sa.studentreward.service.ElementEventService;
+import com.sa.studentreward.service.IElementEventService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class StudentElementController {
 
     @Autowired
-    private ElementEventService elementEventService;
+    private IElementEventService elementEventService;
 
     @PostMapping("buy")
     public ResponseEntity<?> buyElements(@RequestBody StudentElementDto studentElementDto){
