@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import teacher.example.Teacher.DTO.AddTeacherDTO;
 import teacher.example.Teacher.DTO.TeacherDTO;
 import teacher.example.Teacher.DTO.UserDTO;
+import teacher.example.Teacher.DTO.UserNotificationDTO;
+import teacher.example.Teacher.Integration.KafkaSender;
+import teacher.example.Teacher.Integration.Message;
 import teacher.example.Teacher.config.FeignConfig;
 
 @Service
@@ -25,6 +28,9 @@ public class TeacherServiceImp implements TeacherService {
     @Autowired
     private UserFeignClient userFeignClient;
 
+    @Autowired
+    private KafkaSender kafkaSender;
+
     public String addTeacher(AddTeacherDTO addTeacherDTO) {
 
         TeacherDTO teacher = modelMapper.map(addTeacherDTO, TeacherDTO.class);
@@ -32,6 +38,10 @@ public class TeacherServiceImp implements TeacherService {
         UserDTO user = modelMapper.map(addTeacherDTO, UserDTO.class);
         user.setRole("TEACHER");
         userFeignClient.addUser(user);
+
+        UserNotificationDTO userNotificationDTO = new UserNotificationDTO(user.getUserName(), user.getPassword(), user.getRole(), addTeacherDTO.getContact().getEmail());
+        Message<UserNotificationDTO> message = new Message<>("added", userNotificationDTO);
+        kafkaSender.send("new-user", message);
 
         return "Teacher added";
     }

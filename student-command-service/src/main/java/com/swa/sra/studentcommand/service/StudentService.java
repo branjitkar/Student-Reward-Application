@@ -1,12 +1,10 @@
 package com.swa.sra.studentcommand.service;
 
 
+import com.swa.sra.studentcommand.Integration.KafkaSender;
+import com.swa.sra.studentcommand.Integration.Message;
 import com.swa.sra.studentcommand.config.FeignConfig;
-import com.swa.sra.studentcommand.dto.AddStudentDTO;
-import com.swa.sra.studentcommand.dto.AvatarDto;
-import com.swa.sra.studentcommand.dto.StudentDto;
-import com.swa.sra.studentcommand.dto.UserDTO;
-import com.swa.sra.studentcommand.event.SaveStudentEvent;
+import com.swa.sra.studentcommand.dto.*;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +24,8 @@ public class StudentService implements IStudentService {
     private StudentServiceFeignClient studentServiceFeignClient;
     @Autowired
     private UserServiceFeignClient userServiceFeignClient;
+    @Autowired
+    private KafkaSender kafkaSender;
 
     @Override
     public String saveStudent(AddStudentDTO student) {
@@ -38,6 +38,10 @@ public class StudentService implements IStudentService {
 
         UserDTO userDTO = modelMapper.map(student, UserDTO.class);
         userServiceFeignClient.add(userDTO);
+
+        UserNotificationDTO userNotificationDTO = new UserNotificationDTO(userDTO.getUserName(), userDTO.getPassword(), userDTO.getRole(), student.getContact().getEmail());
+        Message<UserNotificationDTO> message = new Message<>("added", userNotificationDTO);
+        kafkaSender.send("new-user", message);
 
         return "student added";
     }
