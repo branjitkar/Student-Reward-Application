@@ -15,5 +15,6 @@ public class Element {
     @Id
     private String id;
     private String type;
+    private String value;
     private double price;
 }
