@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/student-service/pom.xml" />
         <option value="$PROJECT_DIR$/Teacher/pom.xml" />
         <option value="$PROJECT_DIR$/user service/pom.xml" />
+        <option value="$PROJECT_DIR$/TeacherCommandService/pom.xml" />
         <option value="$PROJECT_DIR$/student-command-service/pom.xml" />
         <option value="$PROJECT_DIR$/student-reward/pom.xml" />
       </list>

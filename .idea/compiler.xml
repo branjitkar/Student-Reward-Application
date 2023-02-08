@@ -14,6 +14,7 @@
         <module name="ApiGateway" />
         <module name="AuthorizationServer" />
         <module name="ElementDemo" />
+        <module name="TeacherCommandService" />
         <module name="student-service" />
         <module name="student-reward" />
         <module name="RewardService" />
@@ -37,6 +38,7 @@
       <module name="student-reward" target="17" />
       <module name="student-service" target="11" />
       <module name="Teacher" target="11" />
+      <module name="TeacherCommandService" target="11" />
       <module name="userservice" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -51,6 +53,7 @@
       <module name="EurekaServer" options="-parameters" />
       <module name="RewardService" options="-parameters" />
       <module name="Teacher" options="-parameters" />
+      <module name="TeacherCommandService" options="-parameters" />
       <module name="schoolservice" options="-parameters" />
       <module name="student-command-service" options="-parameters" />
       <module name="student-reward" options="-parameters" />
