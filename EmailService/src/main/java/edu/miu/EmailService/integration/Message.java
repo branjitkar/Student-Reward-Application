@@ -1,5 +1,4 @@
-package teacher.example.Integration;
-
+package edu.miu.EmailService.integration;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

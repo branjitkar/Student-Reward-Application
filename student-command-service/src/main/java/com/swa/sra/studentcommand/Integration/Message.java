@@ -1,4 +1,4 @@
-package teacher.example.Integration;
+package com.swa.sra.studentcommand.Integration;
 
 
 import lombok.AllArgsConstructor;

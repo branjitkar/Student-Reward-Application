@@ -1,13 +1,11 @@
 package teacher.example.Teacher;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.kafka.annotation.EnableKafka;
-import teacher.example.Integration.Sender;
+import teacher.example.Teacher.Integration.KafkaSender;
 
 @SpringBootApplication
 public class TeacherApplication implements CommandLineRunner {
@@ -17,8 +15,8 @@ public class TeacherApplication implements CommandLineRunner {
 	}
 
 	@Bean
-	Sender sender() {
-		return new Sender();
+    KafkaSender sender() {
+		return new KafkaSender();
 	}
 
 	public static void main(String[] args) {

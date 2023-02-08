@@ -10,5 +10,9 @@ spring:
           auth: true
           starttls:
             enable: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: gid
 email:
   from-address: miuwaafinal@gmail.com

@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,8 +17,6 @@ public class AddStudentDTO {
     private String firstName;
     private String lastName;
     private String studentNumber;
-    private Long score;
-    private AvatarDto avatar;
-    private List<RewardDto> rewardList;
+    private ContactDTO contact;
     private SchoolDto school;
 }

@@ -4,3 +4,12 @@ spring:
       host: localhost
       port: 27017
       database: elementDB
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8100/oauth/token
+      userAuthorizationUri: http://localhost:8100/oauth/authorize
+      clientId: client
+      clientSecret: secret
+    resource:
+      userInfoUri: http://localhost:8100/user

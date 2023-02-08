@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class AddTeacherDTO {
-    private String username;
+    private String userName;
     private String teacherNumber;
     private String firstName;
     private String lastname;

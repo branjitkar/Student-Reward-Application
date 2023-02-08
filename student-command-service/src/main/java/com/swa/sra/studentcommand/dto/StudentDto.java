@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +23,7 @@ public class StudentDto {
 
     private AvatarDto avatar;
 
-    private  List<RewardDto> rewardList;
+    private ContactDTO contact;
 
     private SchoolDto school;
 }

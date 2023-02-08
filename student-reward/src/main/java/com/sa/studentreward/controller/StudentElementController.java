@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/students/element/")
+@RequestMapping("/student-rewards/element/")
 @Slf4j
 public class StudentElementController {
 

@@ -1,12 +1,13 @@
 package com.sa.studentreward.feign;
 
+import com.sa.studentreward.config.FeignConfig;
 import com.sa.studentreward.dto.ElementDto;
 import com.sa.studentreward.dto.Reward;
 import com.sa.studentreward.dto.RewardDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient("RewardService")
+@FeignClient(name = "RewardService", configuration = FeignConfig.class)
 public interface RewardClient {
 
     @RequestMapping("/rewards/{id}")
