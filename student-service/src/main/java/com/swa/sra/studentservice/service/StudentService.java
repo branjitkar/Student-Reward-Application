@@ -8,12 +8,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @Slf4j
+@Transactional
 public class StudentService implements  IStudentService{
 
     @Autowired
@@ -51,5 +53,11 @@ public class StudentService implements  IStudentService{
         return iStudentRepository.findAll().stream().map(student->modelMapper.map(student,StudentDto.class))
                 .collect(Collectors.toList());
 
+    }
+
+    @Override
+    public Student getStudentByStudentNumber(String studentNumber) throws Exception {
+        return iStudentRepository.findByStudentNumber(studentNumber).orElseThrow(()->
+                new Exception("Student Not Found"));
     }
 }

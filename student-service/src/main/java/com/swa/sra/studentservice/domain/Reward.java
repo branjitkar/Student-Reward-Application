@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Reward {
     private String id;
     private String name;
-    private int quantity;
+   // private int quantity;
     private RewardType type;
     private int price;
 }

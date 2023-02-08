@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="EurekaServer" />
+        <module name="student-command-service" />
         <module name="userservice" />
         <module name="Teacher" />
         <module name="ApiGateway" />
@@ -15,6 +16,7 @@
         <module name="ElementDemo" />
         <module name="TeacherCommandService" />
         <module name="student-service" />
+        <module name="student-reward" />
         <module name="RewardService" />
         <module name="ConfigServer" />
         <module name="EmailService" />
@@ -23,7 +25,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ApiGateway" target="17" />
+      <module name="ApiGateway" target="11" />
       <module name="AuthorizationServer" target="11" />
       <module name="AvatarDemo" target="11" />
       <module name="ConfigServer" target="11" />
@@ -32,6 +34,8 @@
       <module name="EurekaServer" target="11" />
       <module name="RewardService" target="11" />
       <module name="schoolservice" target="11" />
+      <module name="student-command-service" target="11" />
+      <module name="student-reward" target="17" />
       <module name="student-service" target="11" />
       <module name="Teacher" target="11" />
       <module name="TeacherCommandService" target="11" />
@@ -51,6 +55,8 @@
       <module name="Teacher" options="-parameters" />
       <module name="TeacherCommandService" options="-parameters" />
       <module name="schoolservice" options="-parameters" />
+      <module name="student-command-service" options="-parameters" />
+      <module name="student-reward" options="-parameters" />
       <module name="student-service" options="-parameters" />
       <module name="userservice" options="-parameters" />
     </option>

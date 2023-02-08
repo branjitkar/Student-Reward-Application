@@ -1,5 +1,7 @@
 package edu.miu.RewardService.service;
 
+import edu.miu.RewardService.Integration.Message;
+import edu.miu.RewardService.Integration.Sender;
 import edu.miu.RewardService.domain.Reward;
 import edu.miu.RewardService.dto.RewardDto;
 import edu.miu.RewardService.exception.RewardNotfoundException;
@@ -18,10 +20,13 @@ import java.util.stream.Collectors;
 public class RewardServiceImpl implements RewardService{
     private final RewardRepository rewardRepository;
     private final ModelMapper modelMapper;
+    private final Sender sender;
 
     @Override
     public RewardDto add(RewardDto rewardDto) {
         Reward reward = modelMapper.map(rewardDto, Reward.class);
+        Message<RewardDto> message = new Message<>("added", rewardDto);
+        sender.send("test", message);
         rewardRepository.save(reward);
         return rewardDto;
     }
@@ -56,6 +61,8 @@ public class RewardServiceImpl implements RewardService{
 
     @Override
     public List<RewardDto> getAll() {
+        Message<String> message = new Message<>("testCommand", "testMessage");
+        sender.send("test", message);
         return rewardRepository.findAll().stream().map(reward -> modelMapper.map(reward, RewardDto.class)).collect(Collectors.toList());
     }
 }

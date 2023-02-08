@@ -15,6 +15,8 @@ public interface IStudentService {
 
     List<StudentDto> getAllStudent();
 
+    Student getStudentByStudentNumber(String studentNumber) throws Exception;
+
 
 
 }
