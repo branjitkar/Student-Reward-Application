@@ -14,7 +14,7 @@ public class SaveStudentEvent {
 
     public void send(String message){
         log.info("Inside send method of SaveStudentEvent");
-        kafkaTemplate.send("studentSaved",message);
+        kafkaTemplate.send("studentUpdatedEvent",message);
     }
 
 }

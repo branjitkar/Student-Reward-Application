@@ -1,5 +1,8 @@
 package teacher.example.Teacher.Controller;
 
+import org.springframework.kafka.core.KafkaTemplate;
+import teacher.example.Integration.Message;
+import teacher.example.Integration.Sender;
 import teacher.example.Teacher.DTO.TeacherDTO;
 import teacher.example.Teacher.Domain.Teacher;
 import teacher.example.Teacher.Service.TeacherService;
@@ -17,9 +20,15 @@ public class TeacherController {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private Sender sender;
+    private String topicName = "teacher-topic";
+
     @PostMapping("/teachers/add")
     public ResponseEntity<?> add(@RequestBody Teacher teacher ){
         Teacher teacher1 = teacherService.addTeacher(teacher);
+        Message<Teacher> teacherMsg = new Message<>("add", teacher1);
+        sender.send(topicName, teacherMsg);
         return ResponseEntity.ok().body(modelMapper.map(teacher1, TeacherDTO.class));
     }
     @PutMapping("/teachers/{teacherNumber}")

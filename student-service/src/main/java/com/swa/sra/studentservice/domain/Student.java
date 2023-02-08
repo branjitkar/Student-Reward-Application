@@ -8,6 +8,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,15 +28,19 @@ public class Student {
 
     private String studentNumber;
 
-    private Long score = 1000L;
+    private double score = 1000.00;
 
     private ClassRoom classRoom;
 
      private Avatar avatar;
 
-    private  List<Reward> rewardList;
+    private  List<Reward> rewardList = new ArrayList<>();
 
     private  School school;
 
-    private  List<Element> elementList;
+    private  List<Element> elementList = new ArrayList<>();
+
+    public  void addElement(Element element){
+        elementList.add(element);
+    }
 }
