@@ -15,6 +15,8 @@
     <file url="file://$PROJECT_DIR$/EmailService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/EurekaServer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/EurekaServer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/LoginService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/LoginService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RewardService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RewardService/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Teacher/src/main/java" charset="UTF-8" />

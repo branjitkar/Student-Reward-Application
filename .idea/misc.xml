@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/TeacherCommandService/pom.xml" />
         <option value="$PROJECT_DIR$/student-command-service/pom.xml" />
         <option value="$PROJECT_DIR$/student-reward/pom.xml" />
+        <option value="$PROJECT_DIR$/LoginService/pom.xml" />
       </list>
     </option>
   </component>
