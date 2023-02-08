@@ -1,15 +1,16 @@
 package teacher.example.Teacher.Service;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import teacher.example.Teacher.DTO.AddTeacherDTO;
 import teacher.example.Teacher.DTO.TeacherDTO;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import teacher.example.Teacher.DTO.UserDTO;
+import teacher.example.Teacher.config.FeignConfig;
 
 @Service
 @EnableFeignClients
@@ -35,15 +36,15 @@ public class TeacherServiceImp implements TeacherService {
         return "Teacher added";
     }
 
-    @FeignClient("TEACHERSERVICE")
-    public interface TeacherFeignClient{
+    @FeignClient(name = "TEACHERSERVICE", configuration = FeignConfig.class)
+    public interface TeacherFeignClient {
         @PostMapping("/teachers/add")
-        TeacherDTO add(@RequestBody TeacherDTO teacher );
+        TeacherDTO add(@RequestBody TeacherDTO teacher);
     }
 
-    @FeignClient("USERSERVICE")
-    public interface UserFeignClient{
+    @FeignClient(name = "USERSERVICE", configuration = FeignConfig.class)
+    public interface UserFeignClient {
         @PostMapping("/users")
-        UserDTO addUser(@RequestBody UserDTO userDTO) ;
+        UserDTO addUser(@RequestBody UserDTO userDTO);
     }
 }

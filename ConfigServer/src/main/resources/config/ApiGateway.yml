@@ -26,7 +26,19 @@ spring:
           uri: lb://STUDENTSERVICE
           predicates:
             - Path=/students/**
+        - id: StudentRewardService
+          uri: lb://STUDENTREWARDSERVICE
+          predicates:
+            - Path=/student-rewards/**
         - id: TeacherService
           uri: lb://TEACHERSERVICE
           predicates:
             - Path=/teachers/**
+        - id: TeacherCommandService
+          uri: lb://TEACHERCOMMANDSERVICE
+          predicates:
+            - Path=/teacher-command/**
+        - id: StudentCommandService
+          uri: lb://STUDENTCOMMANDSERVICE
+          predicates:
+            - Path=/student-command/**

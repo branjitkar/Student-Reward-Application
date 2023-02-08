@@ -1,4 +1,4 @@
-package edu.miu.RewardService.config;
+package MyProject.AvatarDemo.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,7 +13,6 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/rewards/**").hasAnyRole("ADMIN", "TEACHER", "STUDENT")
                 .anyRequest()
                 .authenticated();
     }

@@ -1,4 +1,4 @@
-package teacher.example.Integration;
+package com.swa.sra.studentcommand.Integration;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,7 +7,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Sender {
+public class KafkaSender {
     @Autowired
     private KafkaTemplate kafkaTemplate;
 

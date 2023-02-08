@@ -1,4 +1,4 @@
-package edu.miu.RewardService.config;
+package com.service.school.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -13,7 +13,8 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/rewards/**").hasAnyRole("ADMIN", "TEACHER", "STUDENT")
+                .antMatchers(HttpMethod.GET, "/school/**").hasAnyRole("ADMIN", "TEACHER", "STUDENT")
+                .antMatchers("/school/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
     }
