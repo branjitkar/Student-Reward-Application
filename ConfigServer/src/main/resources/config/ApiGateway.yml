@@ -42,3 +42,7 @@ spring:
           uri: lb://STUDENTCOMMANDSERVICE
           predicates:
             - Path=/student-command/**
+        - id: LoginService
+          uri: lb://LOGINSERVICE
+          predicates:
+            - Path=/login/**
