@@ -12,6 +12,7 @@
         <module name="userservice" />
         <module name="Teacher" />
         <module name="ApiGateway" />
+        <module name="LoginService" />
         <module name="AuthorizationServer" />
         <module name="ElementDemo" />
         <module name="TeacherCommandService" />
@@ -32,6 +33,7 @@
       <module name="ElementDemo" target="11" />
       <module name="EmailService" target="11" />
       <module name="EurekaServer" target="11" />
+      <module name="LoginService" target="11" />
       <module name="RewardService" target="11" />
       <module name="schoolservice" target="11" />
       <module name="student-command-service" target="11" />
@@ -51,6 +53,7 @@
       <module name="ElementDemo" options="-parameters" />
       <module name="EmailService" options="-parameters" />
       <module name="EurekaServer" options="-parameters" />
+      <module name="LoginService" options="-parameters" />
       <module name="RewardService" options="-parameters" />
       <module name="Teacher" options="-parameters" />
       <module name="TeacherCommandService" options="-parameters" />

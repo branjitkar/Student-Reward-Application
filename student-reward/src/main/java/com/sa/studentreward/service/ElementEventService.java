@@ -62,7 +62,7 @@ public class ElementEventService implements  IElementEventService {
         log.info("Inside removeElements method of ElementEventService ");
         StudentDto oStudent =  studentClient.getStudent(studentElementDto.getStudentNumber());
         ElementDto element =elementClient.getElementById(studentElementDto.getElementId());
-        if(oStudent.getElementList() != null && iStudentElementService.checkElementExist(element,oStudent.getElementList())) {
+        if(oStudent.getElementList() != null && iStudentElementService.checkElementTypeExist(element.getType(),oStudent.getElementList())) {
             oStudent = iStudentElementService.removeElementAndAddPrice(element.getType(),oStudent);
             studentClient.saveStudent(oStudent);
         }else

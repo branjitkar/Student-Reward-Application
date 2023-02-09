@@ -40,6 +40,10 @@ public class Student {
 
     private  List<Element> elementList = new ArrayList<>();
 
+    private Contact contact;
+
+    private String userName;
+
     public  void addElement(Element element){
         elementList.add(element);
     }

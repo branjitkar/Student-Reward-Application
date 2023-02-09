@@ -13,8 +13,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @ToString
 public class ElementDto {
 
-
     private String type;
 
     private double price;
+
+    private String value;
 }

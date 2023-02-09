@@ -25,7 +25,7 @@ spring:
         - id: StudentService
           uri: lb://STUDENTSERVICE
           predicates:
-            - Path=/students/**
+            - Path=/students/**,/students-avatar/**
         - id: StudentRewardService
           uri: lb://STUDENTREWARDSERVICE
           predicates:
