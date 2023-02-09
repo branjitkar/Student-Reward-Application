@@ -15,4 +15,7 @@ public interface TeacherService {
 
     public List<TeacherDTO> viewTeachers();
 
+    public Teacher getTeacherById(String teacherNumber);
+
+    public void saveTeacher(TeacherDTO teacher);
 }

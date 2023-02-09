@@ -15,12 +15,13 @@
         <module name="LoginService" />
         <module name="AuthorizationServer" />
         <module name="ElementDemo" />
+        <module name="AuthorizationServer" />
         <module name="TeacherCommandService" />
         <module name="student-service" />
         <module name="student-reward" />
         <module name="RewardService" />
-        <module name="ConfigServer" />
         <module name="EmailService" />
+        <module name="ConfigServer" />
         <module name="AvatarDemo" />
         <module name="schoolservice" />
       </profile>
