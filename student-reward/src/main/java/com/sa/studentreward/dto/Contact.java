@@ -1,5 +1,6 @@
 package com.sa.studentreward.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,13 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ElementDto {
+public class Contact {
 
-    private int id;
+    private String phoneNumber;
 
-    private String type;
-
-    private double price;
-
-    private String value;
+    private String email;
 }

@@ -1,5 +1,6 @@
 package com.swa.sra.studentservice.service;
 
+import com.swa.sra.studentservice.domain.Avatar;
 import com.swa.sra.studentservice.domain.Student;
 import com.swa.sra.studentservice.dto.StudentDto;
 import com.swa.sra.studentservice.event.SaveStudentEvent;
@@ -30,6 +31,7 @@ public class StudentService implements  IStudentService{
     @Override
     public void saveStudent(Student student) {
         log.info("Inside  saveStudent of StudentService");
+        student.setAvatar(new Avatar());
         iStudentRepository.save(student);
         saveStudentEvent.send(student.toString());
     }

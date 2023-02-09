@@ -13,6 +13,7 @@
         <module name="Teacher" />
         <module name="ApiGateway" />
         <module name="LoginService" />
+        <module name="AuthorizationServer" />
         <module name="ElementDemo" />
         <module name="AuthorizationServer" />
         <module name="TeacherCommandService" />
