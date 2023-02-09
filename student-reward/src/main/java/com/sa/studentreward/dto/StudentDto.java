@@ -32,6 +32,10 @@ public class StudentDto {
 
     private  List<ElementDto> elementList = new ArrayList<>();
 
+    private String username;
+
+    private Contact contact;
+
     public  void addElement(ElementDto element){
         elementList.add(element);
     }

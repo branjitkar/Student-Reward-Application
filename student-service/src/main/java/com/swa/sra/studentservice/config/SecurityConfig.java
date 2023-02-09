@@ -17,8 +17,8 @@ public class SecurityConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/students-avatar/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/students/**").hasAnyRole("ADMIN", "TEACHER")
+                .antMatchers("/students-avatar/**").hasAnyRole("ADMIN", "TEACHER","STUDENT")
+                .antMatchers(HttpMethod.POST, "/students/**").hasAnyRole("ADMIN", "TEACHER","STUDENT")
                 .antMatchers("/students/**").hasAnyRole("ADMIN", "TEACHER", "STUDENT")
                 .anyRequest()
                 .authenticated();
