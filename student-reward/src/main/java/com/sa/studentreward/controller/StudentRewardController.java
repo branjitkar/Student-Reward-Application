@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/students/reward/")
+@RequestMapping("/student-rewards/reward/")
 @Slf4j
 public class StudentRewardController {
 

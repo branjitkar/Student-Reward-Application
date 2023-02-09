@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/admin/student-rewards/")
+@RequestMapping("/student-rewards/admin")
 @Slf4j
 public class AdminRewardController {
     @Autowired

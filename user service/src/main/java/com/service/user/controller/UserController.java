@@ -1,6 +1,7 @@
 package com.service.user.controller;
 
 import com.service.user.dto.UserDTO;
+import com.service.user.exceptions.UserAlreadyExistsException;
 import com.service.user.reponsemsg.ResponseMessage;
 import com.service.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,12 @@ public class UserController {
 
     @PostMapping
     ResponseEntity<?> addUser(@RequestBody UserDTO userDTO) {
-       userService.addUser(userDTO);
-        return new ResponseEntity<>(new ResponseMessage("User Created Successfully"), HttpStatus.OK);
+        try {
+            userService.addUser(userDTO);
+            return new ResponseEntity<>(new ResponseMessage("User Created Successfully"), HttpStatus.OK);
+        } catch (UserAlreadyExistsException ex){
+            return new ResponseEntity<>(new ResponseMessage("User NOT created. User Already Exists."), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping
