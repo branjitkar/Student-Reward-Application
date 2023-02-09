@@ -1,6 +1,7 @@
 package teacher.example.Teacher.Controller;
 
 import teacher.example.Teacher.DTO.TeacherDTO;
+import teacher.example.Teacher.DTO.Teachers;
 import teacher.example.Teacher.Domain.Teacher;
 import teacher.example.Teacher.Service.TeacherService;
 import org.modelmapper.ModelMapper;
@@ -17,10 +18,12 @@ public class TeacherController {
     @Autowired
     private ModelMapper modelMapper;
 
+    private String topicName = "teacher-topic";
+
     @PostMapping("/teachers/add")
-    public ResponseEntity<?> add(@RequestBody Teacher teacher ){
-        Teacher teacher1 = teacherService.addTeacher(teacher);
-        return ResponseEntity.ok().body(modelMapper.map(teacher1, TeacherDTO.class));
+    public ResponseEntity<?> add(@RequestBody TeacherDTO teacherDTO ){
+        teacherService.saveTeacher(teacherDTO);
+        return ResponseEntity.ok().body(teacherDTO);
     }
     @PutMapping("/teachers/{teacherNumber}")
     public ResponseEntity<?> update(@PathVariable String teacherNumber, @RequestBody Teacher teacher){
@@ -33,9 +36,18 @@ public class TeacherController {
     }
     @GetMapping("/teachers")
     public ResponseEntity<?> viewTeachers() {
-        List<TeacherDTO> teachers = teacherService.viewTeachers();
-       return ResponseEntity.ok().body(teachers);
+
+        List<TeacherDTO> teacherList = teacherService.viewTeachers();
+        Teachers teachers = new Teachers();
+        teachers.setTeachers(teacherList);
+        return ResponseEntity.ok().body(teachers);
     }
+    @GetMapping("/teachers/{teacherNumber}")
+    public ResponseEntity<?> getTeacher(@PathVariable("teacherNumber") String teacherNumber){
+        Teacher teacher = teacherService.getTeacherById(teacherNumber);
+        return ResponseEntity.ok().body(modelMapper.map(teacher, TeacherDTO.class));
+    }
+
     }
 
 

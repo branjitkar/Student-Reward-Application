@@ -39,17 +39,17 @@ public class TeacherServiceImp implements TeacherService{
     @Override
     public Teacher updateTeacher(String teacherNumber, Teacher teacher) {
         Optional<Teacher> optionalTeacher = Optional.ofNullable(teacherRepository.findByTeacherNumber(teacherNumber));
-           if(optionalTeacher.isPresent()){
-               Teacher toBeUpdated = optionalTeacher.get();
-               toBeUpdated.setContact(teacher.getContact());
-               toBeUpdated.setFirstName(teacher.getFirstName());
-               toBeUpdated.setLastname(teacher.getLastname());
-               toBeUpdated.setSchool(teacher.getSchool());
-               toBeUpdated.setTeachingclass(teacher.getTeachingclass());
-               return teacherRepository.save(toBeUpdated);
-           }
-           else
-               throw new TeacherNotFoundException("Teacher with number "  + teacherNumber + " not found!" );
+        if(optionalTeacher.isPresent()){
+            Teacher toBeUpdated = optionalTeacher.get();
+            toBeUpdated.setContact(teacher.getContact());
+            toBeUpdated.setFirstName(teacher.getFirstName());
+            toBeUpdated.setLastname(teacher.getLastname());
+            toBeUpdated.setSchool(teacher.getSchool());
+            toBeUpdated.setTeachingclass(teacher.getTeachingclass());
+            return teacherRepository.save(toBeUpdated);
+        }
+        else
+            throw new TeacherNotFoundException("Teacher with number "  + teacherNumber + " not found!" );
     }
 
     @Override
@@ -57,4 +57,23 @@ public class TeacherServiceImp implements TeacherService{
         List<TeacherDTO> teacherList = teacherRepository.findAll().stream().map(teacher -> modelMapper.map(teacher, TeacherDTO.class)).collect(Collectors.toList());
         return teacherList;
     }
+
+    @Override
+    public Teacher getTeacherById(String teacherNumber) {
+        Optional<Teacher> teacher = teacherRepository.findById(teacherNumber);
+        if(teacher.isPresent()){
+            return teacher.get();
+        }
+        else
+            throw new TeacherNotFoundException("Teacher not found!");
+
+    }
+
+    @Override
+    public void saveTeacher(TeacherDTO teacher) {
+
+        teacherRepository.save(modelMapper.map(teacher,Teacher.class));
+
+    }
+
 }

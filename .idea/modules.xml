@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/ElementDemo/ElementDemo.iml" filepath="$PROJECT_DIR$/ElementDemo/ElementDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/EmailService/EmailService.iml" filepath="$PROJECT_DIR$/EmailService/EmailService.iml" />
       <module fileurl="file://$PROJECT_DIR$/EurekaServer/EurekaServer.iml" filepath="$PROJECT_DIR$/EurekaServer/EurekaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoginService/LoginService.iml" filepath="$PROJECT_DIR$/LoginService/LoginService.iml" />
       <module fileurl="file://$PROJECT_DIR$/RewardService/RewardService.iml" filepath="$PROJECT_DIR$/RewardService/RewardService.iml" />
       <module fileurl="file://$PROJECT_DIR$/Teacher/Teacher.iml" filepath="$PROJECT_DIR$/Teacher/Teacher.iml" />
       <module fileurl="file://$PROJECT_DIR$/TeacherCommandService/TeacherCommandService.iml" filepath="$PROJECT_DIR$/TeacherCommandService/TeacherCommandService.iml" />
