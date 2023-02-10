@@ -38,9 +38,7 @@ public class TeacherController {
     public ResponseEntity<?> viewTeachers() {
 
         List<TeacherDTO> teacherList = teacherService.viewTeachers();
-        Teachers teachers = new Teachers();
-        teachers.setTeachers(teacherList);
-        return ResponseEntity.ok().body(teachers);
+        return ResponseEntity.ok().body(teacherList);
     }
     @GetMapping("/teachers/{teacherNumber}")
     public ResponseEntity<?> getTeacher(@PathVariable("teacherNumber") String teacherNumber){
